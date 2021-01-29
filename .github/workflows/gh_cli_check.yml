@@ -1,0 +1,14 @@
+name: Github CLI check
+
+on:
+  pull_request: {}
+  push: { branches: [main] }
+
+jobs:
+  job:
+    name: Github CLI check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github CLI check
+        run: |
+          gh --version
