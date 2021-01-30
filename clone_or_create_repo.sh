@@ -5,6 +5,8 @@ if git clone https://nwkhteam:$GITHUB_TOKEN@github.com/Nowhere-Know-How/$REPO_NA
 then 
     echo "Repo already exists."
 else 
+    git config --global user.email "nwkhteam@gmail.com"
+    git config --global user.name "Nowhere-Know-How-Worker"
     gh repo create Nowhere-Know-How/$REPO_NAME --public --confirm
     mkdir ./$REPO_NAME
     cd ./$REPO_NAME
