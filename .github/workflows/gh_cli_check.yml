@@ -1,13 +1,13 @@
-name: Check python 
+name: Check pip3 
 on:
   pull_request: {}
   # push: { branches: [main] }
 
 jobs:
   job:
-    name: Check python 
+    name: Check pip3 
     runs-on: ubuntu-latest
     steps:
-      - name: Check python 
+      - name: Check pip3 
         run: |
-          python3 -V
+          pip3 -V
