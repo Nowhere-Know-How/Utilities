@@ -6,6 +6,7 @@ then
     echo "Repo already exists."
 else 
     gh repo create Nowhere-Know-How/$REPO_NAME --public --confirm
+    ls
     cd ./$REPO_NAME
     echo "# "$REPO_NAME >> README.md
     git add README.md
