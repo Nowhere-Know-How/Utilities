@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Check python 
         run: |
-          python -V
+          python3 -V
