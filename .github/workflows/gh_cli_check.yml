@@ -1,13 +1,13 @@
-name: Github repo name test
+name: Check python 
 on:
   pull_request: {}
   push: { branches: [main] }
 
 jobs:
   job:
-    name: Github repo name test
+    name: Check python 
     runs-on: ubuntu-latest
     steps:
-      - name: Github repo name test
+      - name: Check python 
         run: |
-          echo $GITHUB_REPOSITORY
+          python -V
