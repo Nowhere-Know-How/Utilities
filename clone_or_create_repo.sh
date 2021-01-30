@@ -16,4 +16,5 @@ else
     git remote add origin https://github.com/Nowhere-Know-How/$REPO_NAME.git
     git push -u origin main
     cd ..
+    echo "Repo has been created"
 fi
