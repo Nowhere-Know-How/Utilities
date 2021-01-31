@@ -2,6 +2,11 @@ import yaml
 import os
 import sys
 
+CWD = os.getcwd()
+print("Current script running at: " + CWD)
+for _dir in os.listdir():
+    print(_dir)
+
 input = sys.argv[1]
 game_ready = False
 
