@@ -15,7 +15,7 @@ def create_menu_item():
     new_menu_item = {"title": input, "url": f"/{input.lower()}/"}
     config["menu"].append(new_menu_item)
     
-    with open(os.path.join(CWD, "_config.yml")) as file:
+    with open(os.path.join(CWD, "_config.yml"), "w") as file:
         documents = yaml.dump(config, file)
 
 
