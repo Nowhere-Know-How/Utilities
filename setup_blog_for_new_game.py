@@ -15,24 +15,24 @@ def create_menu_item():
     new_menu_item = {"title": input, "url": f"/{input.lower()}/"}
     config["menu"].append(new_menu_item)
     
-    with open(".\_config.yml", "w") as file:
+    with open(os.path.join(CWD, "_config.yml")) as file:
         documents = yaml.dump(config, file)
 
 
 def create_markdown_from_template():
-    with open(".\_templates\\new_game.md", "r") as file:
+    with open(os.path.join(CWD, "_templates", "new_game.md"), "r") as file:
         markdown_template = file.read()
         markdown_file = markdown_template.replace("$TITLE", input)
 
-    with open(f".\\_featured_categories\{input}.md", "w") as file:
+    with open(os.path.join(CWD, "_featured_categories", f"{input}.md"), "w") as file:
         file.write(markdown_file)
 
 
 def create_post_directory():
-    os.mkdir(f".\_posts\{input}", 755)
+    os.mkdir(os.path.join(CWD, "_posts", f"{input}"), 755)
 
 
-with open(".\_config.yml") as file:
+with open(os.path.join(CWD, "_config.yml")) as file:
     config = yaml.load(file, Loader=yaml.FullLoader)
 
 for _ in config["menu"]:
