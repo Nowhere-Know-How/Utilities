@@ -3,18 +3,16 @@ import os
 import sys
 
 CWD = os.getcwd()
-print("Current script running at: " + CWD)
-for _dir in os.listdir():
-    print(_dir)
-
 input = sys.argv[1]
 game_ready = False
-
+about_item_index = -1
 
 def create_menu_item():
     new_menu_item = {"title": input, "url": f"/{input.lower()}/"}
+    about_item = config["menu"].pop(about_item_index)
     config["menu"].append(new_menu_item)
-    
+    config["menu"].append(about_item)
+
     with open(os.path.join(CWD, "_config.yml"), "w") as file:
         documents = yaml.dump(config, file)
 
@@ -36,9 +34,12 @@ def create_post_directory():
 with open(os.path.join(CWD, "_config.yml")) as file:
     config = yaml.load(file, Loader=yaml.FullLoader)
 
-for _ in config["menu"]:
-    if _["title"] == input:
+for i in range(len(config["menu"])):
+    if config["menu"][i]["title"] == input:
         game_ready = True
+    if config["menu"][i]["title"] == "About":
+        about_item_index = i
+    
 
 if not game_ready:
     create_menu_item()
