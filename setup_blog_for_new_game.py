@@ -30,7 +30,7 @@ def create_markdown_from_template():
 
 def create_post_directory():
     os.umask(0)
-    os.mkdir(os.path.join(CWD, "_posts", f"{input}"), 755)
+    os.mkdir(os.path.join(CWD, "_posts", f"{input}"), 777)
 
 
 with open(os.path.join(CWD, "_config.yml")) as file:
