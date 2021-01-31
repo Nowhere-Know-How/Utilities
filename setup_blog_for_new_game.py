@@ -29,6 +29,7 @@ def create_markdown_from_template():
 
 
 def create_post_directory():
+    os.umask(0)
     os.mkdir(os.path.join(CWD, "_posts", f"{input}"), 755)
 
 
@@ -43,3 +44,5 @@ if not game_ready:
     create_menu_item()
     create_markdown_from_template()
     create_post_directory()
+
+print("Game ready!")
