@@ -8,6 +8,8 @@ if git clone https://$MACHINE_USER:$GITHUB_TOKEN@github.com/$ORG_NAME/$REPO_NAME
 then 
     echo "Repo already exists."
 else 
+    git config --global user.email "nwkhteam@gmail.com"
+    git config --global user.name "Nowhere-Know-How-Worker"
     gh repo create $ORG_NAME/$REPO_NAME --public --confirm
     mkdir ./$REPO_NAME
     cd ./$REPO_NAME
