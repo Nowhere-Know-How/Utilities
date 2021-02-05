@@ -1,13 +1,14 @@
 #!/bin/bash
 GITHUB_TOKEN=$1
 REPO_NAME=$2
-if git clone https://nwkhteam:$GITHUB_TOKEN@github.com/Nowhere-Know-How/$REPO_NAME.git
+ORG_NAME=$3
+MACHINE_USER=$4
+
+if git clone https://$MACHINE_USER:$GITHUB_TOKEN@github.com/$ORG_NAME/$REPO_NAME.git
 then 
     echo "Repo already exists."
 else 
-    git config --global user.email "nwkhteam@gmail.com"
-    git config --global user.name "Nowhere-Know-How-Worker"
-    gh repo create Nowhere-Know-How/$REPO_NAME --public --confirm
+    gh repo create $ORG_NAME/$REPO_NAME --public --confirm
     mkdir ./$REPO_NAME
     cd ./$REPO_NAME
     echo "# "$REPO_NAME >> README.md
@@ -15,7 +16,7 @@ else
     git add README.md
     git commit -m "first commit"
     git branch -M main
-    git remote add origin https://nwkhteam:$GITHUB_TOKEN@github.com/Nowhere-Know-How/$REPO_NAME.git
+    git remote add origin https://$MACHINE_USER:$GITHUB_TOKEN@github.com/$ORG_NAME/$REPO_NAME.git
     git push -u origin main
     cd ..
     echo "Repo has been created"
