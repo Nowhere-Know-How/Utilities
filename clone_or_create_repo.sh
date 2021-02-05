@@ -9,7 +9,7 @@ then
     echo "Repo already exists."
 else 
     # git config --global user.email "nwkhteam@gmail.com"
-    git config --global user.name "Nowhere-Know-How-Worker"
+    git config --global user.name $MACHINE_USER
     gh repo create $ORG_NAME/$REPO_NAME --public --confirm
     mkdir ./$REPO_NAME
     cd ./$REPO_NAME
