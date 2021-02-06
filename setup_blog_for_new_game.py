@@ -22,7 +22,7 @@ def create_markdown_from_template():
     with open(os.path.join(CWD, "_templates", "new_game.md"), "r") as file:
         markdown_template = file.read()
         markdown_file = markdown_template.replace("$TITLE", game_name)
-        markdown_file = markdown_template.replace("$ORG", org_name)
+        markdown_file = markdown_file.replace("$ORG", org_name)
 
     with open(os.path.join(CWD, "_featured_categories", f"{game_name}.md"), "w") as file:
         file.write(markdown_file)
